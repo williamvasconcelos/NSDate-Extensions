@@ -99,6 +99,14 @@ static const unsigned componentFlags = (NSYearCalendarUnit| NSMonthCalendarUnit 
     return [formatter stringFromDate:self];
 }
 
++ (NSDate*) dateWithString: (NSString*) dateString withFormat: (NSString *) format
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:format];
+    NSDate *date = [formatter dateFromString:dateString];
+    return date;
+}
+
 - (NSString *) shortString
 {
     return [self stringWithDateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
